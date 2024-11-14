@@ -1,0 +1,85 @@
+---
+title: "HW-8"
+format: html
+editor: visual
+---
+
+```{r}
+#SeoulBikeData <- read.csv("https://www4.stat.ncsu.edu/~online/datasets/SeoulBikeData.csv")
+```
+
+Checking the Data
+
+```{r}
+# Install the whole tidyverse
+#install.packages("tidyverse")
+
+# Install lubridate:
+#install.packages("lubridate")
+
+#devtools::install_github("tidyverse/lubridate")
+```
+
+```{r}
+#as.factor(Seasons)
+#as.factor(Holiday)
+#as.factor(FunctioningDay)
+```
+
+```{r}
+#sapply(SeoulBikeData, mean, na.rm=TRUE)
+#summary(SeoulBikeData)
+#fivenum(SeoulBikeData)
+```
+
+Split the Data
+
+```{r}
+#library(tidymodels)
+#set.seed(10)
+#SeoulBikeData_split <- initial_split(SeoulBikeData, prop = 0.7)
+#SeoulBikeData_train <- training(SeoulBikeData_split)
+#SeoulBikeData_test <- testing(SeoulBikeData_split)
+#SeoulBikeData_train
+```
+
+```{r}
+#step_poly(temp, wind_speed, vis, dew_point_temp, solar_radiation, rainfall,
+#snowfall)
+```
+
+```{r}
+#recipe_2 <- recipe(Rented_Bike_sum ~ ., data = SeoulBikeData_train) |>
+  #step_mutate(day_type = factor(if_else(wday(Date) %in% c(1, 7), "weekend", #"weekday"))) |>
+  #step_rm(Date) |>
+  #step_normalize(all_numeric(), -all_outcomes()) |>
+  #step_dummy(Seasons, Holiday, day_type) |>
+  #step_interact(terms = ~ Seasons:Holiday + Seasons:Temperature_mean + Temperature_mean:Rainfall_sum) 
+```
+
+```{r}
+#step_poly(temp, wind_speed, vis, dew_point_temp, solar_radiation, rainfall,
+#snowfall, degree = 2)
+```
+
+```{r}
+#fit_resamples(SeoulBikeData_train)
+```
+
+```{r}
+#last_fit(SeoulBikeData_train) 
+```
+
+```{r}
+#getRMSE <- function(resp, pred, ...){
+#Calculate RMSE and return it
+#RMSE <- sqrt(mean((resp-pred)ˆ2, ...))
+#return(RMSE = RMSE)
+#}
+#getRMSE(resp, pred, SeoulBikeData_test)
+```
+
+```{r}
+#extract_fit_parsnip(SeoulBikeData_train)
+#tidy(SeoulBikeData_train)
+```
